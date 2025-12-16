@@ -16,15 +16,15 @@ Route::get('/posts', function () {
     return view('posts', ['title'=>'Blog', 'posts'=>[
         [
             'id'=>1,
-            'slug'=>'judul-artikel-1',
+            'slug'=>'Judul-Artikel-1',
             'title'=>'Judul Artikel 1',
             'author'=>'Asri Asrori',
             'body'=>'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Veniam, qui? Culpa reprehenderit a ad assumenda. Porro repellendus numquam placeat laboriosam, rem aperiam excepturi aliquid impedit fugiat sed dolorem voluptas ratione!'
         ],
         [
             'id'=>2,
-            'slug'=>'judul-artikel-2',
-            'title'=>'udul Artikel 2',
+            'slug'=>'judul-Artikel-2',
+            'title'=>'Judul Artikel 2',
             'author'=>'Asri Asrori',
             'body'=>'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Libero magni quaerat veniam quae provident, doloremque aperiam molestias quisquam quos autem dolores, fugiat at sequi nam animi deleniti eaque repudiandae quis!'
         ]
@@ -32,26 +32,26 @@ Route::get('/posts', function () {
     //echo "Selamat Datang di halaman about";
 });
 
-Route::get('/posts/{slug}', function ($slug) {
+Route::get('/posts/{id}', function ($id) {
     $posts = [
             [
             'id'=>1,
-            'slug'=>'judul-artikel-1',
+            'slug'=>'judul-Artikel-1',
             'title'=>'Judul Artikel 1',
             'author'=>'Asri Asrori',
             'body'=>'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Veniam, qui? Culpa reprehenderit a ad assumenda. Porro repellendus numquam placeat laboriosam, rem aperiam excepturi aliquid impedit fugiat sed dolorem voluptas ratione!'
             ],
             [
             'id'=>2,
-            'slug'=>'judul-artikel-2',
+            'slug'=>'judul-Artikel-2',
             'title'=>'Judul Artikel 2',
             'author'=>'Asri Asrori',
             'body'=>'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Libero magni quaerat veniam quae provident, doloremque aperiam molestias quisquam quos autem dolores, fugiat at sequi nam animi deleniti eaque repudiandae quis!'
             ]
         ];
        
-        $post = Arr::first($posts, function ($post) use ($slug) {
-            return $post['slug'] == $slug;
+        $post = Arr::first($posts, function ($post) use ($id) {
+            return $post['id'] == $id;
         });
        
        return view('post', ['title'=>'single Post', 'post' => $post]);
